@@ -1,0 +1,29 @@
+const int touch = 10;
+const int led = 6;
+
+int touchstate;
+
+void setup() {
+Serial.begin(9600);
+
+pinMode(touch, INPUT);
+pinMode(led, OUTPUT);
+
+}
+
+void loop() {
+
+  touchstate = digitalRead(touch);
+
+ if(touchstate == HIGH){
+  Serial.println("TOUCH ON, LED ON");
+  digitalWrite(led, HIGH);
+ }
+ else{
+  Serial.println("TOUCH OFF, LED OFF");
+  digitalWrite(led, LOW);
+ }
+
+ delay(1000);
+
+}
